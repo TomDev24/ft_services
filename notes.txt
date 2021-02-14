@@ -1,0 +1,21 @@
+1)Same dude from docker
+https://www.youtube.com/watch?v=7bA0gTroJjw
+---kubernetes is docker containers orcherstrator
+
+2)https://kubernetes.io/ru/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
+---creating first cluster
+
+3)Introduction courest of kubernet
+https://www.katacoda.com/courses/kubernetes
+
+--)Here i started reading subject more carefully, and googling some questions
+--)https://stackoverflow.com/questions/42154249/difference-http-redirect-vs-reverse-proxy-in-nginx
+--diff between redirect and reverse proxy
+
+4)There is at least 3 ways to set up kubernets locally -kind -minikube -kubeadm
+--https://kubernetes.io/docs/tasks/tools/
+pros and cons
+--https://www.padok.fr/en/blog/minikube-kubeadm-kind-k3s
+
+5)I started with installng minikube, kubectl and virtualbox
+https://kubernetes.io/ru/docs/tasks/tools/install-minikube/
