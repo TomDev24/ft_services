@@ -19,3 +19,22 @@ pros and cons
 
 5)I started with installng minikube, kubectl and virtualbox
 https://kubernetes.io/ru/docs/tasks/tools/install-minikube/
+
+------------------
+minikube start --vm-driver=virtualbox
+minikube status
+
+kubectl get pods
+kubectl get pods --context=minikube
+
+minikube dashboard
+minikube addons list
+minikube addons enable metallb
+kubectl get pods -n metallb-system
+minikube ip
+minikube addons configure metallb
+kubectl describe configmap config -n metallb-system
+//
+kubectl get svc
+//
+------------------
