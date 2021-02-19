@@ -1,0 +1,9 @@
+1)Check memory
+du -sh ./$(ls -A)
+
+2)ln -s link_to imagine name
+-do that for .brew   .minikube  and .brewconfig
+
+2)you need docker mahcine installed (brew, and minikube also)
+3)docker machine create
+-- dont have to, minikube handles itself

@@ -38,3 +38,30 @@ kubectl describe configmap config -n metallb-system
 kubectl get svc
 //
 ------------------
+
+si-d5% docker images
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+6)
+-->Our docker layes inside cluster, we have to change enviroment
+eval $(minikube docker-env)
+-that will let us use docker inside cluster
+
+7)Is much better to use Deployment than Pods,
+https://stackoverflow.com/questions/41325087/what-is-the-difference-between-a-pod-and-a-deployment#:~:text=Pods%20%2D%20runs%20one%20or%20more,right%20number%20of%20them%20exist.
+--Pods Deployment Services
+
+8)alpine could not get packages
+alpine:latest change to verison alpine:3.8
+
+9)Right in dashboard i am trying to configure the ssh
+---- open port 22 in docker and yaml
+root@ip_adress
+----->create new user for that
+apk add openssh
+//where it live
+ssh-keygen -A // find with fill
+/usr/sbin/sshd -D
+
+10)supervisor from docker, to run two process
+
