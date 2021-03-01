@@ -65,3 +65,13 @@ ssh-keygen -A // find with fill
 
 10)supervisor from docker, to run two process
 
+11)Time to add Wordpress
+--Starting point https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
+
+//good point https://stackoverflow.com/questions/25135897/how-to-automatically-start-a-service-when-running-a-docker-container
+//applying kustomization only works when you copy past it from the docks
+
+12)So that i can use rc-service
+rc-service is part of openrc, install openrc
+
+apk add openrc --no-cache
