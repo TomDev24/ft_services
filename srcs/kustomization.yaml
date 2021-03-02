@@ -4,3 +4,4 @@ secretGenerator:
   - password=wp-user
 resources:
   - mysql.yaml
+  - wp.yaml

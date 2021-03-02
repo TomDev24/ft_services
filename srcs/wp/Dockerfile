@@ -1,4 +1,4 @@
-FROM	alpine:latest
+FROM	alpine:3.12
 
 RUN apk update
 RUN apk add --no-cache openrc vim nginx openssl
@@ -7,7 +7,7 @@ RUN apk add php7-common php7-session php7-fpm php7-mcrypt php7-soap php7-openssl
 RUN	wget https://wordpress.org/latest.tar.gz
 RUN	mkdir -p /www/localhost
 RUN	tar -xf latest.tar.gz && mv wordpress/* /www/localhost
-COPY	./wp_config.php /www/localhost/
+COPY	./wp-config.php /www/localhost/
 COPY	./nginx.conf /etc/nginx/conf.d/default.conf
 RUN	chown -R nginx:nginx /www/localhost
 

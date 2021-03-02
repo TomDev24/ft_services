@@ -5,4 +5,5 @@ rc-update add php-fpm7
 rc-service php-fpm7 restart
 rc-update add nginx
 rc-service nginx restart
-sleep infinity && wait
+
+tail -f /dev/null

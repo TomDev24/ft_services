@@ -5,25 +5,14 @@ metadata:
   labels:
     app: wordpress
 spec:
+  type: ClusterIP
   ports:
     - port: 3306
+      targetPort: 3306
+      protocol: TCP
   selector:
     app: wordpress
     tier: mysql
-  clusterIP: None
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-  labels:
-    app: wordpress
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 2Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -32,6 +21,7 @@ metadata:
   labels:
     app: wordpress
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: wordpress
@@ -48,19 +38,26 @@ spec:
       - image: mysql
         imagePullPolicy: Never
         name: mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-pass
-              key: password
+        # env:
+                # - name: MYSQL_ROOT_PASSWORD
+          #valueFrom:
+                  # secretKeyRef:
+                    #name: mysql-pass
+              # key: password
         ports:
         - containerPort: 3306
           name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+        livenessProbe:
+          exec:
+            command:
+              - pgrep
+              - mysqld
+          initialDelaySeconds: 1
+          periodSeconds: 1
+          # volumeMounts:
+                #- name: mysql-persistent-storage
+          # mountPath: /var/lib/mysql
+          #    volumes:
+              # - name: mysql-persistent-storage
+        #persistentVolumeClaim:
+            #claimName: mysql-pv-claim
