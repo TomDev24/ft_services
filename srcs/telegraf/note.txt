@@ -1,0 +1,5 @@
+1)first trying to install apk add telegraf
+
+2)how to configure
+http://www.mtitek.com/tutorials/kubernetes/kubernetes_metrics.php
+minikube addons enable metrics-server

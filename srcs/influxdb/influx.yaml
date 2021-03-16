@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: influx
+  labels:
+    app: influx
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8086
+      targetPort: 8086
+      protocol: TCP
+  selector:
+    app: influx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influx-deploy
+  labels:
+    app: influx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influx
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: influx
+    spec:
+      containers:
+      - image: influx
+        imagePullPolicy: Never
+        name: influx
+        ports:
+        - containerPort: 8086
+          name: influx
+        livenessProbe:
+          exec:
+            command:
+              - pgrep
+              - influxd
+          initialDelaySeconds: 1
+          periodSeconds: 1
+          # volumeMounts:
+                #- name: mysql-persistent-storage
+          # mountPath: /var/lib/mysql
+          #    volumes:
+              # - name: mysql-persistent-storage
+        #persistentVolumeClaim:
+            #claimName: mysql-pv-claim

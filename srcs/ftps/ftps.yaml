@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+  annotations:
+    metallb.universe.tf/allow-shared-ip: ekvm
+spec:
+  ports:
+    - port: 20
+      targetPort: 20
+      name: data
+    - port: 21
+      targetPort: 21
+      name: cmd
+    - port: 64000
+      targetPort: 64000
+      name: pasv
+  selector:
+    app: ftps
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftps
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - image: ftps
+        imagePullPolicy: Never
+        name: ftps
+        ports:
+        - containerPort: 21
+        - containerPort: 20
+        - containerPort: 64000
+        livenessProbe:
+          exec:
+            command:
+              - pgrep
+              - vsftpd
+          initialDelaySeconds: 1
+          periodSeconds: 1

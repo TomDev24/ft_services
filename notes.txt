@@ -75,3 +75,6 @@ ssh-keygen -A // find with fill
 rc-service is part of openrc, install openrc
 
 apk add openrc --no-cache
+
+13)How to allow connection from any machine
+https://stackoverflow.com/questions/11634084/are-users-user-and-userlocalhost-not-the-same

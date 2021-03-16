@@ -1,0 +1,11 @@
+example of alpine influxdb
+https://github.com/container-examples/alpine-influxdb/blob/master/configs/influxdb.conf
+
+#on ports of inlfuxdb
+https://docs.influxdata.com/influxdb/v1.8/administration/ports/
+
+#influxdb daemon
+https://docs.influxdata.com/influxdb/v1.8/tools/influxd/
+
+
+#dont forget to configure back-up

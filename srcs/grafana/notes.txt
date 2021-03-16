@@ -1,0 +1,11 @@
+grafana file 
+https://grafana.com/grafana/download?platform=linux
+
+installation url
+https://grafana.com/docs/grafana/latest/installation/debian/
+
+#configuration
+https://grafana.com/docs/grafana/latest/administration/configuration/
+
+#provisioning
+https://grafana.com/docs/grafana/latest/administration/provisioning/#datasources?utm_source=grafana_ds_list

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: telegraf
+spec:
+    selector:
+        matchLabels:
+            app: telegraf
+    template:
+        metadata:
+            labels:
+                app: telegraf
+        spec:
+            containers:
+                - image: telegraf
+                  name: telegraf
+                  imagePullPolicy: Never
+                  # volumeMounts:
+                  #    - name: telegraf-pv-storage
+                  #      mountPath: "/var/run/docker.sock"
+                  #  volumes:
+                  # - name: telegraf-pv-storage
+                  #persistentVolumeClaim:
+                  #  claimName: telegraf-pv-storage
+

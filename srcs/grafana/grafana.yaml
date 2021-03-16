@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  labels:
+    app: grafana
+  annotations:
+    metallb.universe.tf/allow-shared-ip: ekvm
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: grafana
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - image: grafana
+        imagePullPolicy: Never
+        name: grafana
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          exec:
+            command:
+              - echo
+          initialDelaySeconds: 1
+          periodSeconds: 1
