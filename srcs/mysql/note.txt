@@ -7,3 +7,6 @@ https://stackoverflow.com/questions/49090469/docker-alpine-linux-running-2-progr
 
 -- you can do without supervisoer, but wiht healthcheck in docker, (what about liveprobenss??)
 https://harm-smits.github.io/42docs/projects/ft_services
+
+--about persistnent volume
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/

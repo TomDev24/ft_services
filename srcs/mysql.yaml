@@ -14,6 +14,31 @@ spec:
     app: wordpress
     tier: mysql
 ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+      path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+      - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -38,12 +63,6 @@ spec:
       - image: mysql
         imagePullPolicy: Never
         name: mysql
-        # env:
-                # - name: MYSQL_ROOT_PASSWORD
-          #valueFrom:
-                  # secretKeyRef:
-                    #name: mysql-pass
-              # key: password
         ports:
         - containerPort: 3306
           name: mysql
@@ -54,10 +73,10 @@ spec:
               - mysqld
           initialDelaySeconds: 1
           periodSeconds: 1
-          # volumeMounts:
-                #- name: mysql-persistent-storage
-          # mountPath: /var/lib/mysql
-          #    volumes:
-              # - name: mysql-persistent-storage
-        #persistentVolumeClaim:
-            #claimName: mysql-pv-claim
+        volumeMounts:
+          - mountPath: "/var/lib/mysql"
+            name: mysql-persistent-storage
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
