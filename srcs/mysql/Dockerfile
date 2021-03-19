@@ -1,9 +1,9 @@
 from alpine:3.12
 
-RUN	apk add openrc vim mysql mysql-client
+RUN	apk add openrc vim mysql mysql-client php7-mbstring
 
 COPY	./my.cnf /etc/mysql/my.cnf
-COPY	./mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY	./db.sql .
 
 EXPOSE 3306
 COPY ./init.sh .

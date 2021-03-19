@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/6150675/how-to-feed-mysql-queries-from-bash
+
+https://ru.godaddy.com/help/sozdajte-fajl-dampa-sql-27394
