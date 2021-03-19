@@ -12,5 +12,4 @@ mysql --user='root' --execute="GRANT ALL ON wp.* TO 'wp_user'@'%' IDENTIFIED BY 
 mysql --user='root' --execute="FLUSH PRIVILEGES"
 mysql -u root --skip-password < db.sql
 
-
 tail -f /dev/null

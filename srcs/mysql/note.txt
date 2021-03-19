@@ -1,3 +1,9 @@
 https://stackoverflow.com/questions/6150675/how-to-feed-mysql-queries-from-bash
 
 https://ru.godaddy.com/help/sozdajte-fajl-dampa-sql-27394
+
+--about supervisor
+https://stackoverflow.com/questions/49090469/docker-alpine-linux-running-2-programs
+
+-- you can do without supervisoer, but wiht healthcheck in docker, (what about liveprobenss??)
+https://harm-smits.github.io/42docs/projects/ft_services
