@@ -2,7 +2,7 @@
 
 #init
 minikube delete
-minikube start
+minikube start --vm-driver=virtualbox --cpus=4 --memory=4096 --disk-size=50G
 eval $(minikube docker-env)
 
 #setup loadbalancer

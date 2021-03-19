@@ -1,5 +1,9 @@
 #!/bin/sh
 
+openrc boot
+rc-update add nginx
+
+mv index.html /www/localhost
+rc-service nginx start
 telegraf &
-nginx -g 'daemon off;'
 tail -f /dev/null

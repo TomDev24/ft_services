@@ -7,3 +7,22 @@ du -sh ./$(ls -A)
 2)you need docker mahcine installed (brew, and minikube also)
 3)docker machine create
 -- dont have to, minikube handles itself
+
+############FROM BEGINING
+--->goinfre went empty, but some symbolic links still remains
+1)BREW installation
+https://github.com/kube/42homebrew
+
+2)i putted brew in goinfree
+cd ~
+mv .brew ./goinfree
+ln -s ./goinfree/.brew .brew
+
+3)brew install minikube
+
+4).minikube -> goinfre/.minikube
+.docker -> ./goinfre/.docker
+so they too should have symbolic links
+
+5) i had to delete old .minikube file from home directory
+and create link to .minikube again
