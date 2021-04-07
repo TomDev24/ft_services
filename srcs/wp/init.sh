@@ -6,4 +6,5 @@ rc-service php-fpm7 restart
 rc-update add nginx
 rc-service nginx restart
 
+telegraf &
 tail -f /dev/null

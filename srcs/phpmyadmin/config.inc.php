@@ -33,7 +33,7 @@ $cfg['Servers'][$i]['host'] = 'wordpress-mysql';
 $cfg['Servers'][$i]['user'] = 'wp_user';
 $cfg['Servers'][$i]['password'] = 'wp_user';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 /**
  * phpMyAdmin configuration storage settings.

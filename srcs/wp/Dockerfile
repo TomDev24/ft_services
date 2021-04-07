@@ -11,6 +11,13 @@ COPY	./wp-config.php /www/localhost/
 COPY	./nginx.conf /etc/nginx/conf.d/default.conf
 RUN	chown -R nginx:nginx /www/localhost
 
+ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ./
+RUN tar -xf telegraf-1.14.0-static_linux_amd64.tar.gz \
+        && chmod +x telegraf/* \
+        && cp telegraf/telegraf /usr/bin/
+RUN mkdir -p /etc/telegraf
+COPY telegraf.conf /etc/telegraf/telegraf.conf
+
 COPY	init.sh .
 RUN	mkdir -p /run/nginx/
 

@@ -14,6 +14,12 @@ COPY	./nginx.conf /etc/nginx/conf.d/default.conf
 COPY	./config.inc.php /www/localhost/config.inc.php
 RUN	chown -R nginx:nginx /www/localhost
 
+ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ./
+RUN tar -xf telegraf-1.14.0-static_linux_amd64.tar.gz \
+        && chmod +x telegraf/* \
+        && cp telegraf/telegraf /usr/bin/
+RUN mkdir -p /etc/telegraf
+COPY telegraf.conf /etc/telegraf/telegraf.conf
 
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 COPY init.sh .
