@@ -6,7 +6,7 @@ eval $(minikube docker-env)
 #setup loadbalancer
 minikube ip #prints ip of localhost
 minikube addons enable metallb
-minikube addons enable metrics-server
+#minikube addons enable metrics-server
 kubectl apply -f ./srcs/ips.yaml
 kubectl describe configmap config -n=metallb-system # to see which ip are dedicated
 

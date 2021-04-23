@@ -29,7 +29,7 @@ define( 'DB_USER', 'wp_user' );
 define( 'DB_PASSWORD', 'wp_user' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'wordpress-mysql' );
+define( 'DB_HOST', 'mysql-svc' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: influx
   labels:
-    app: influx
+    app: influxdb
 spec:
   type: ClusterIP
   ports:
@@ -11,7 +11,7 @@ spec:
       targetPort: 8086
       protocol: TCP
   selector:
-    app: influx
+    app: influxdb
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -41,25 +41,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: influx-deploy
+  name: influxdb
   labels:
-    app: influx
+    app: influxdb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: influx
+      app: influxdb
   strategy:
-    type: Recreate
+      type: Recreate
   template:
     metadata:
       labels:
-        app: influx
+        app: influxdb
     spec:
       containers:
       - image: influx
         imagePullPolicy: Never
-        name: influx
+        name: influxdb
         ports:
         - containerPort: 8086
           name: influx

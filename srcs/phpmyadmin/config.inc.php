@@ -29,7 +29,7 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'wordpress-mysql';
+$cfg['Servers'][$i]['host'] = 'mysql-svc';
 $cfg['Servers'][$i]['user'] = 'wp_user';
 $cfg['Servers'][$i]['password'] = 'wp_user';
 $cfg['Servers'][$i]['compress'] = false;

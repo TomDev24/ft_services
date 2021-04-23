@@ -1,5 +1,5 @@
 #container nginx
-kubectl delete deploy wordpress-mysql
+kubectl delete deploy mysql
 eval $(minikube docker-env)
 docker container prune -f
 docker rmi mysql
