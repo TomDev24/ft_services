@@ -50,7 +50,6 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep
-              - vsftpd
-          initialDelaySeconds: 1
+              - ./live.sh 
+          initialDelaySeconds: 2
           periodSeconds: 1

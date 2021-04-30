@@ -36,21 +36,12 @@ spec:
       - image: phpmyadmin
         imagePullPolicy: Never
         name: phpmyadmin
-        #env:
-        #- name: WORDPRESS_DB_HOST
-        #  value: wordpress-mysql
-        #- name: WORDPRESS_DB_PASSWORD
-        #  valueFrom:
-        #    secretKeyRef:
-        #      name: mysql-pass
-        #      key: password
+        livenessProbe:
+          exec:
+            command:
+              - ./live.sh
+          initialDelaySeconds: 2
+          periodSeconds: 1
         ports:
         - containerPort: 5000
           name: phpmyadmin
-          # volumeMounts:
-          #- name: wordpress-persistent-storage
-          # mountPath: /www/localhost
-          # volumes:
-          # - name: wordpress-persistent-storage
-          # persistentVolumeClaim:
-          # claimName: wp-pv-claim

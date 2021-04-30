@@ -6,7 +6,7 @@
 #    By: dbrittan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/19 03:58:05 by dbrittan          #+#    #+#              #
-#    Updated: 2021/03/19 03:07:36 by dbrittan         ###   ########.fr        #
+#    Updated: 2021/04/30 15:03:09 by dbrittan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,5 +34,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/s
 
 EXPOSE 80 443 22
 COPY init.sh .
+COPY live.sh .
 RUN  chmod +x init.sh
+RUN  chmod +x live.sh
 CMD ./init.sh

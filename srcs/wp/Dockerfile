@@ -20,7 +20,9 @@ COPY telegraf.conf /etc/telegraf/telegraf.conf
 
 COPY	init.sh .
 RUN	mkdir -p /run/nginx/
+COPY	live.sh .
 
 EXPOSE	5050
 RUN chmod +x init.sh
+RUN chmod +x live.sh
 CMD ./init.sh

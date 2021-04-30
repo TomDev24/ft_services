@@ -15,4 +15,7 @@ COPY telegraf.conf /etc/telegraf/telegraf.conf
 EXPOSE 21 20 64000 
 COPY ./init.sh .
 RUN	chmod +x init.sh
+COPY ./live.sh .
+RUN	chmod +x live.sh
+
 CMD ./init.sh

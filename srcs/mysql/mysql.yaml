@@ -71,10 +71,9 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep
-              - mysqld
-          initialDelaySeconds: 3
-          periodSeconds: 3
+              - ./live.sh
+          initialDelaySeconds: 2
+          periodSeconds: 1
         volumeMounts:
             - name: mysql-volume-storage
               mountPath: "/var/lib/"

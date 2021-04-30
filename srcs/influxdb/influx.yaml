@@ -66,8 +66,7 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep
-              - influxd
+              - ./live.sh 
           initialDelaySeconds: 1
           periodSeconds: 1
         volumeMounts:

@@ -23,6 +23,8 @@ COPY telegraf.conf /etc/telegraf/telegraf.conf
 
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 COPY init.sh .
+COPY live.sh .
 EXPOSE 5000
 RUN chmod +x init.sh
+RUN chmod +x live.sh
 CMD ./init.sh

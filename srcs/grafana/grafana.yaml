@@ -41,6 +41,6 @@ spec:
         livenessProbe:
           exec:
             command:
-              - echo
+              - ./live.sh
           initialDelaySeconds: 1
           periodSeconds: 1

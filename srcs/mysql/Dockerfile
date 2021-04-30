@@ -15,5 +15,7 @@ COPY supervisor.conf /etc/
 
 EXPOSE 3306
 COPY ./init.sh .
+COPY ./live.sh .
 RUN	chmod +x init.sh
+RUN	chmod +x live.sh
 CMD ./init.sh

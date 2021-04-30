@@ -10,5 +10,8 @@ COPY telegraf.conf /etc/telegraf/telegraf.conf
 
 COPY	influxdb.conf /etc/influxdb.conf
 COPY	init.sh .
+COPY	live.sh .
 RUN	chmod +x init.sh
+RUN	chmod +x live.sh
+
 CMD	./init.sh
